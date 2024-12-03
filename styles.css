@@ -1,0 +1,334 @@
+/* estilos.css */
+
+/* Reseteo de margenes y fuente básica */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1d, #4e4e50);
+    color: #f3f3f3;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+#main-container {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section {
+    width: 80%;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+h1, h2 {
+    color: #00e5ff;
+}
+
+p {
+    font-size: 1.3rem;
+    margin: 15px 0;
+}
+
+/* Estilos de los enlaces de navegación */
+.nav-link {
+    display: inline-block;
+    margin: 20px;
+    padding: 20px 40px;
+    background-color: #444;
+    color: #f3f3f3;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-link:hover {
+    background-color: #00e5ff;
+    color: #111;
+    transform: scale(1.05);
+}
+
+/* Estilos del currículum */
+.curriculum-content h3 {
+    color: #00e5ff;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 229, 255, 0.4);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: #cccccc;
+}
+
+blockquote {
+    font-style: italic;
+    color: #ccc;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-left: 5px solid #00e5ff;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Crea columnas flexibles */
+    gap: 30px; /* Más espacio entre cada elemento */
+    padding: 20px;
+    justify-items: center; /* Centra cada elemento dentro de su espacio */
+}
+
+.gallery-item {
+    width: 100%;
+    max-width: 300px; /* Ajusta el tamaño máximo de cada elemento */
+    position: relative;
+    text-align: center;
+    transition: transform 0.3s ease; /* Transición suave para el efecto de ampliación */
+}
+
+.gallery img, .gallery video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Efecto de ampliación sin superposición */
+.gallery-item:hover {
+    transform: scale(1.1); /* Amplía el elemento al pasar el cursor */
+    z-index: 1; /* Asegura que el elemento ampliado quede encima de los demás */
+}
+
+.gallery figcaption {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.small-video {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 100%; /* Tamaño normal del video */
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+/* Estado ampliado */
+.small-video:focus {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5); /* Escala el video */
+    z-index: 1000;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8);
+    outline: none; /* Oculta el borde de foco por defecto */
+    border: 2px solid #00e5ff; /* Opcional: un borde para indicar el foco */
+}
+
+
+
+/* Cursor holográfico */
+.cursor-holographic {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(255, 0, 0, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.cursor-holographic::before {
+    content: "";
+    width: 2px;
+    height: 15px;
+    background-color: rgba(255, 0, 0, 0.8);
+    position: absolute;
+}
+
+.cursor-holographic::after {
+    content: "";
+    width: 15px;
+    height: 2px;
+    background-color: rgba(255, 0, 0, 0.8);
+    position: absolute;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#sobre-mi {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 50px;
+}
+
+#sobre-mi p {
+    font-size: 1.1rem;
+    color: #ddd;
+    line-height: 1.5;
+}
+.skills {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.stars {
+    display: flex;
+    gap: 5px; /* Espacio entre cada estrella */
+    font-size: 1.2em;
+    margin-top: 5px;
+    justify-content: center; /* Centra las estrellas horizontalmente */
+    color: gold;
+}
+
+
+.filled-star, .half-star, .empty-star {
+    display: inline-block;
+}
+
+.skill-item {
+    position: relative;
+    padding: 10px;
+     /* Fondo de la caja */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.skill-item .stars {
+    position: relative;
+    z-index: 1;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 10px; /* Reduce el espacio entre bloques */
+    max-width: 500px; /* Reduce el ancho máximo del contenedor */
+    margin: 0 auto;
+}
+
+.skill-item {
+    position: relative;
+    padding: 15px; /* Reduce el padding dentro de cada bloque */
+   
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Asegura la forma cuadrada */
+}
+
+.skill-item span {
+    font-weight: bold;
+    z-index: 1; /* Asegura que el texto esté encima del logo de fondo */
+}
+
+.stars {
+    display: flex;
+    gap: 5px;
+    font-size: 1.2em;
+    margin-top: 5px;
+    justify-content: center;
+    z-index: 1; /* Asegura que las estrellas estén encima del logo */
+}
+
+.rating {
+    font-size: 0.9em;
+    color: #666;
+    z-index: 1;
+}
+
+/* Fondo con logo en cada habilidad */
+.skill-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 60%; /* Ajusta el tamaño del logo dentro del fondo */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1; /* Transparencia del logo */
+    z-index: 0;
+}
+
+/* Especificar fondos para cada programa */
+.blender::before {
+    background-image: url("Blender_logo_no_text.svg.png");
+}
+
+.unity::before {
+    background-image: url("Unity-removebg-preview.png");
+}
+
+.after-effects::before {
+    background-image: url("Adobe_After_Effects_CC_icon.png");
+}
+
+.unreal::before {
+    background-image: url("Ue.png");
+}
+
+.premiere::before {
+    background-image: url("Adobe_Premiere_Pro_CC_icon.svg.png");
+}
+
+.photoshop::before {
+    background-image: url("Adobe_Photoshop_CC_icon.svg.png");
+}
+
+.substance::before {
+    background-image: url("images-removebg-preview.png");
+}
+
+.max::before {
+    background-image: url("3ds-max-logo-9B624BE04F-seeklogo.com.png");
+}
+
